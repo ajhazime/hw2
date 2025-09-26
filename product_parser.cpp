@@ -82,6 +82,7 @@ void ProductParser::parseCommonProduct(std::istream& is,
 
 ProductBookParser::ProductBookParser() : ProductParser()
 {
+    
 }
 
 Product* ProductBookParser::parseSpecificProduct(std::string category,
