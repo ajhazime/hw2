@@ -1,6 +1,7 @@
 #include <sstream>
 #include <iomanip>
 #include "product.h"
+#include "util.h"
 
 using namespace std;
 
@@ -54,4 +55,11 @@ void Product::dump(std::ostream& os) const
 }
 
 
+void Product::addToKeywordsSet(std::set<string>& outputSet, std::string stringToParse) const{
+    for (std::string s : parseStringToWords(stringToParse))
+    {
+        outputSet.insert(s);
+    }
+    return;
 
+}

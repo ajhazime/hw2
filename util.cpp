@@ -20,7 +20,7 @@ above for taking a string of many words and splitting them into individual keywo
     to a set of words based on the criteria given in the assignment **/
 std::set<std::string> parseStringToWords(string rawWords)
 {
-    set<std::string> parsedWords;
+    std::set<std::string> parsedWords;
 
     std::string parsedString = trim(rawWords);
     std::string currSubstring = "";
@@ -30,7 +30,7 @@ std::set<std::string> parseStringToWords(string rawWords)
             currSubstring += c;
         } else {
             if( currSubstring.length() >= 2){
-                parsedWords.insert(currSubstring);
+                parsedWords.insert(convToLower(currSubstring));
             }
             currSubstring = "";
         }

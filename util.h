@@ -10,41 +10,46 @@
  *  Both functions should run in time O(n*log(n)) and not O(n^2)
  *
  *
- * Complete the setIntersection and setUnion functions in util.h. These will help you later on to perform searching. 
+ * Complete the setIntersection and setUnion functions in util.h. These will help you later on to perform searching.
  * These functions should run in O(nlog(n))* and NOT O(n^2). Note that these are templated functions operating on any generic set<T>.
  *  As a hint, to declare an iterator for set<T> you must precede the type with the keyword typename as in typename set<T>::iterator it.
  */
 template <typename T>
-std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
+std::set<T> setIntersection(std::set<T> &s1, std::set<T> &s2)
 {
 
-    std::set<T> outputSet; 
+    std::set<T> outputSet;
 
-    typename set<t>::iterator it1 = s1.start();
-    typename set<t>::iterator it2 = s2.start();
+    typename std::set<T>::iterator it1 = s1.begin();
+    typename std::set<T>::iterator it2 = s2.begin();
 
-    while( ( it1 != s1.end() ) && ( it2 != s2.end() ) ){
-        if( *it1 < *it2 ) {
+    while ((it1 != s1.end()) && (it2 != s2.end()))
+    {
+        if (*it1 < *it2)
+        {
             it1++;
         }
-        else if (*it1 > *it2) {
+        else if (*it1 > *it2)
+        {
             it2++;
         }
-        else { 
+        else
+        {
             outputSet.insert(*it1);
-            it1, it2 += 1;
+            it1++;
+            it2++;
         }
     }
     return outputSet;
 }
 template <typename T>
-std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
+std::set<T> setUnion(std::set<T> &s1, std::set<T> &s2)
 {
 
     std::set<T> outputSet;
 
-    typename set<t>::iterator it1 = s1.start();
-    typename set<t>::iterator it2 = s2.start();
+    typename std::set<T>::iterator it1 = s1.begin();
+    typename std::set<T>::iterator it2 = s2.begin();
 
     while ((it1 != s1.end()) && (it2 != s2.end()))
     {
@@ -61,11 +66,13 @@ std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
         else
         {
             outputSet.insert(*it1);
-            it1, it2 += 1;
+            it1++;
+            it2++;
         }
     }
 
-    while ( it1 != s1.end() ){
+    while (it1 != s1.end())
+    {
         outputSet.insert(*it1);
         it1++;
     }
@@ -75,9 +82,7 @@ std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
         it2++;
     }
     return outputSet;
-    
 }
-
 
 /***********************************************/
 /* Prototypes of functions defined in util.cpp */
@@ -89,11 +94,11 @@ std::set<std::string> parseStringToWords(std::string line);
 
 // Used from http://stackoverflow.com/questions/216823/whats-the-best-way-to-trim-stdstring
 // Removes any leading whitespace
-std::string &ltrim(std::string &s) ;
+std::string &ltrim(std::string &s);
 
 // Removes any trailing whitespace
-std::string &rtrim(std::string &s) ;
+std::string &rtrim(std::string &s);
 
 // Removes leading and trailing whitespace
-std::string &trim(std::string &s) ;
+std::string &trim(std::string &s);
 #endif

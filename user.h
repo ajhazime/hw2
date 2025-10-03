@@ -23,4 +23,5 @@ private:
     double balance_;
     int type_;
 };
+
 #endif

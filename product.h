@@ -31,6 +31,9 @@ public:
      */
     virtual void dump(std::ostream& os) const;
 
+    //helper function for parsing
+    void addToKeywordsSet(std::set<std::string>& outputSet, std::string stringToParse) const;
+
     /**
      * Accessors and mutators
      */
@@ -44,6 +47,7 @@ protected:
     double price_;
     int qty_;
     std::string category_;
+    
 
 };
 #endif
